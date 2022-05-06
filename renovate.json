@@ -1,0 +1,14 @@
+{
+    "extends": [
+        "config:base"
+    ],
+    "hostRules": [
+        {
+            "enabled": true,
+            "abortOnError": true,
+            "matchHost": "circleci.com",
+            "username": "test",
+            "password": ""
+        }
+    ]
+}
