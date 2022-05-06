@@ -1,19 +1,14 @@
 version: 2.1
 orbs:
-  node: circleci/node@5.0.0
-jobs:
-  install-node-example:
-    docker:
-      - image: "cimg/base:stable"
-    steps:
-      - checkout
-      - node/install:
-          install-yarn: true
-          node-version: "16.13"
-      - run: node --version
+  my-cicd-orb: my-company-name/my-cicd-orb@1.0.1
+
 workflows:
-  test_my_app:
+  version: 2
+  release_pipeline:
     jobs:
-      - install-node-example
-# orb URL is:
-# https://circleci.com/developer/orbs/orb/circleci/node
+      - my-cicd-orb/my-task:
+          filters:
+            tags:
+              only: /.*/
+            branches:
+              only: /.*/
